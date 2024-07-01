@@ -1,0 +1,13 @@
+{% extends 'main/index.html' %}
+{% block content %}
+<h1>Login</h1>
+<div class="login">
+  <form class="" method="post">
+    {% csrf_token%}
+    {{ form.non_field_errors }}
+    <input type="text" name="username"><br>
+    <input type="text" name="password"><br>
+    <input type="submit" value="Log in">
+  </form>
+</div>
+{% endblock %}
