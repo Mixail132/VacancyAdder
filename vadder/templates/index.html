@@ -5,28 +5,29 @@
     <meta charset="UTF-8">
     <title>VacancyAdder</title>
     <link rel="stylesheet" href="{% static 'css/beauty.css' %}">
-
 </head>
 <body>
     <header>
     <nav>
       <ul>
-        <li><a href="{% url 'home' %}">Home</a></li>
-
-        <li>
           {% if user.is_authenticated %}
-          <a class="btn" href="{% url 'logout' %}">Log out</a>
-          {% else %}
-          <a class="btn" href="{% url 'login' %}">Log in</a>
+          <li>
+          <a href="{% url 'logout' %}">Log out</a>
+          </li>
           {% endif %}
-        </li>
-        <li><a href="http://127.0.0.1:8000/admin/">Admin</a></li>
+          <li><a href="http://127.0.0.1:8000/admin">Admin</a></li>
       </ul>
     </nav>
   </header>
-        <div class="cover">
-            {% block content %}
+    <div class="">
+        {% if user.is_authenticated %}
+            {% block add %}
             {% endblock %}
-        </div>
+        {% else %}
+            {% block login %}
+            {% endblock %}
+        {% endif %}
+    </div>
+
 </body>
 </html>

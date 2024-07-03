@@ -1,0 +1,68 @@
+{% extends 'index.html' %}
+{% block add %}
+<h1>Add a vacancy</h1>
+<form  class="" action="" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div>profession<br>
+    <select name="profession">
+      <option value="backend">backend</option>
+      <option value="frontend">frontend</option>
+      <option value="qa">qa</option>
+      <option value="devops">devops</option>
+      <option value="designer">designer</option>
+      <option value="game">game</option>
+      <option value="mobile">mobile</option>
+      <option value="product">product</option>
+      <option value="pm">pm</option>
+      <option value="analyst">analyst</option>
+      <option value="marketing">marketing</option>
+      <option value="sales">sales_manager</option>
+      <option value="hr">hr</option>
+    </select>
+  </div><br>
+  <div>level<br>
+    junior<input type="checkbox" name="junior">
+    middle<input type="checkbox" name="middle">
+    senior<input type="checkbox" name="senior">
+  </div><br>
+  <div>job type<br>
+    office<input type="checkbox" name="office">
+    remote<input type="checkbox" name="remote">
+    flexible<input type="checkbox" name="flexible">
+    full time<input type="checkbox" name="full_time">
+  </div><br>
+  <div>vacancy<br>
+    <input type="text" placeholder="vacancy" name="title">
+  </div><br>
+  <div>body<br>
+    <input type="text" placeholder="body" name="body">
+  </div><br>
+  <div>city<br>
+    <input type="text" placeholder="city" name="city">
+  </div><br>
+  <div>salary<br>
+    <input type="text" placeholder="salary" name="salary">
+  </div><br>
+  <div>experience<br>
+    <input type="text" placeholder="2" name="experience">
+  </div><br>
+  <div>company<br>
+    <input type="company" placeholder="company" name="company">
+  </div><br>
+  <div>english<br>
+    A1<input type="radio" name="A1">
+    A2<input type="radio" name="A2">
+    B1<input type="radio" name="B1">
+    B2<input type="radio" name="B2">
+    C1<input type="radio" name="C1">
+    C2<input type="radio" name="C2">
+  </div><br>
+  <div>
+    contact<br>
+    <input type="text" placeholder="contact" name="url"><br>
+  </div><br>
+  <br>
+  <input type="submit" value="Preview">
+</form>
+
+{% endblock %}

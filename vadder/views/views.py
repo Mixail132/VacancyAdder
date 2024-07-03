@@ -2,5 +2,7 @@ from django.shortcuts import render
 
 
 def home(request):
-    """ Shows the home page."""
-    return render(request, "main/home.html")
+    """ Shows tha add vacancy form."""
+    if request.user.is_authenticated:
+        return render(request, "add.html")
+    return render(request, "login.html")
