@@ -2,7 +2,7 @@
 {% block login %}
 <h1>Login</h1>
 <div class="login">
-  <form class="" method="post">
+  <form class="" action="{% url 'login' %}" method="post">
     {% csrf_token%}
     {{ form.non_field_errors }}
     <input type="text" name="username"><br>
