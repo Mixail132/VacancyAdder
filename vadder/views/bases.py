@@ -58,23 +58,23 @@ class DataBaseHandler:
     def insert_vacancy(self, vacancy_keys, vacancy_values):
         conn = self.get_connect()
         cursor = conn.cursor()
-        sql = f"""
-        INSERT INTO 
-        postgres.public.admin_last_session
-        ({vacancy_keys}) 
-        VALUES 
-        ('{vacancy_values}')
-        """
-        try:
-            cursor.execute(sql)
-        except Error as err:
-            print("Ошибка выполнения запроса: %s" % err)
-        else:
-            conn.commit()
-            print("Запись успешно добавлена.")
-        finally:
-            cursor.close()
-            conn.close()
+        for database_table in ("admin_last_session", "vacancy_stock"):
+            sql = f"""
+            INSERT INTO 
+            postgres.public.{database_table} 
+            ({vacancy_keys}) 
+            VALUES 
+            ('{vacancy_values}')
+            """
+            try:
+                cursor.execute(sql)
+            except Error as err:
+                print("Ошибка выполнения запроса: %s" % err)
+            else:
+                conn.commit()
+                print("Запись успешно добавлена.")
+        cursor.close()
+        conn.close()
 
 
 if __name__ == "__main__":
