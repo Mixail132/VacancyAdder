@@ -1,11 +1,10 @@
 import os
-import time
+import datetime
 import psycopg2
 from psycopg2 import Error
 from sshtunnel import SSHTunnelForwarder
 from collections import Counter
 from dotenv import load_dotenv
-import datetime
 
 load_dotenv()
 
@@ -45,11 +44,9 @@ class DataBaseHandler:
     def get_channels(self):
         conn = self.get_connect()
         cursor = conn.cursor()
-        yesterday = self.today - datetime.timedelta(days=1)
         cursor.execute(f"SELECT chat_name "
                        f"FROM postgres.public.vacancy_stock "
                        f"WHERE created_at >= '{self.today}'"
-                       # f"AND created_at >= '{yesterday}'"
                        f"order by created_at DESC"
                        )
         items = cursor.fetchall()
@@ -58,13 +55,18 @@ class DataBaseHandler:
         for chat_name, number in counter.items():
             print(chat_name[0], number)
 
-    def insert_vacancy(self, vacancy_data):
+    def insert_vacancy(self, vacancy_keys, vacancy_values):
         conn = self.get_connect()
         cursor = conn.cursor()
-        sql = "INSERT INTO postgres.public.vacancy_stock (body, title) VALUES (%s, %s)"
-        val = ('12', '21')
+        sql = f"""
+        INSERT INTO 
+        postgres.public.admin_last_session
+        ({vacancy_keys}) 
+        VALUES 
+        ('{vacancy_values}')
+        """
         try:
-            cursor.execute(sql, val)
+            cursor.execute(sql)
         except Error as err:
             print("Ошибка выполнения запроса: %s" % err)
         else:
@@ -74,21 +76,7 @@ class DataBaseHandler:
             cursor.close()
             conn.close()
 
-    def select_vacancy(self, vacancy_data):
-        conn = self.get_connect()
-        cursor = conn.cursor()
-        sql = "SELECT * FROM postgres.public.vacancy_stock WHERE title = '21'"
-        cursor.execute(sql)
-        items = cursor.fetchall()
-        conn.close()
-        for item in items:
-            print(item)
-
 
 if __name__ == "__main__":
     data_handler = DataBaseHandler()
-    # data_handler.get_channels()
-    trial_data = {"body": "Trial vacancy text"}
-    data_handler.insert_vacancy(trial_data)
-    time.sleep(3)
-    data_handler.select_vacancy(trial_data)
+    data_handler.get_channels()
