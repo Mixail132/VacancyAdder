@@ -35,7 +35,7 @@ class DataBaseHandler:
             dbname=self.db_name,
             user=self.db_user,
             password=self.db_password,
-            host='127.0.0.1',
+            host='localhost-',
             port=tunnel.local_bind_port
         )
 
