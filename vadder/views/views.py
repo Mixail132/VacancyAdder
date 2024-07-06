@@ -56,7 +56,7 @@ def getdata(request):
         "time_of_public": today,
     }
     if "junior" in levels:
-        vacancy_data["profession"] = f'junior, {vacancy_data["profession"]}'
+        vacancy_data["profession"] = f'{vacancy_data["profession"]}, junior'
 
     vacancy_keys, vacancy_values = prepare_vacancy_items(vacancy_data)
 
