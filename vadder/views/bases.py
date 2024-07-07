@@ -60,10 +60,10 @@ class DataBaseHandler:
         cursor = conn.cursor()
         for database_table in ("admin_last_session", "vacancy_stock"):
             sql = f"""
-            INSERT INTO 
-            postgres.public.{database_table} 
-            ({vacancy_keys}) 
-            VALUES 
+            INSERT INTO
+            postgres.public.{database_table}
+            ({vacancy_keys})
+            VALUES
             ('{vacancy_values}')
             """
             try:
