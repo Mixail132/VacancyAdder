@@ -29,8 +29,8 @@ SECRET_KEY = os.getenv("DJ_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [os.getenv("MY_HOST"), '127.0.0.1']
-
+MY_HOST = os.getenv("MY_HOST")
+ALLOWED_HOSTS = [MY_HOST, '127.0.0.1']
 
 # Application definition
 
