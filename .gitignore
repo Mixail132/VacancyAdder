@@ -1,6 +1,7 @@
 .env
 .venv
 venv
+.run
 .idea
 __pycache__
 todo.txt
