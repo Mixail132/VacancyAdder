@@ -20,6 +20,9 @@ class DataBaseHandler:
     db_user = os.getenv("DB_USER")
     db_password = os.getenv("DB_PASSWORD")
 
+    local_host = os.getenv("LOC_HOST")
+    local_port = int(os.getenv("LOC_PORT"))
+
     today = datetime.datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
 
     def get_connect(self):
@@ -27,6 +30,7 @@ class DataBaseHandler:
             (self.ssh_host, self.ssh_port),
             ssh_username=self.ssh_username,
             ssh_password=self.ssh_password,
+            local_bind_address=(self.local_host, self.local_port),
             remote_bind_address=(self.db_host, self.db_port)
         )
 
@@ -35,7 +39,7 @@ class DataBaseHandler:
             dbname=self.db_name,
             user=self.db_user,
             password=self.db_password,
-            host='localhost-',
+            host='localhost',
             port=tunnel.local_bind_port
         )
 
