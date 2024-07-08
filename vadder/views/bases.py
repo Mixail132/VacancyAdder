@@ -84,3 +84,4 @@ class DataBaseHandler:
 if __name__ == "__main__":
     data_handler = DataBaseHandler()
     data_handler.get_channels()
+
