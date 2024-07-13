@@ -1,9 +1,8 @@
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
-from django.contrib.auth.views import LoginView, LogoutView
-from django.contrib.auth import login, logout
+from django.contrib.auth.views import LoginView
+from django.contrib.auth import logout
 from django.shortcuts import redirect
-from ..forms import LoginUserForm
+from vadder.forms import LoginUserForm
 from django.template import loader
 from django.http import HttpResponse
 
