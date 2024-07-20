@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv("DJ_SECRET_KEY")
 DEBUG = True
 
 MY_HOST = os.getenv("MY_HOST")
-ALLOWED_HOSTS = [MY_HOST, '127.0.0.1']
+ALLOWED_HOSTS = [MY_HOST, '127.0.0.1', "localhost"]
 
 # Application definition
 
