@@ -32,12 +32,6 @@ DEBUG = True
 MY_HOST = os.getenv("MY_HOST")
 ALLOWED_HOSTS = [MY_HOST, '127.0.0.1', "localhost"]
 
-# Application definition
-
-class VadderConfig(AppConfig):
-    name = "vadder"
-    path = BASE_DIR / "vadder"
-
 
 INSTALLED_APPS = [
     "django.contrib.admin",
