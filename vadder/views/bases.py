@@ -10,7 +10,7 @@ load_dotenv()
 
 class DataBaseHandler:
     ssh_host = os.getenv("SSH_HOST")
-    ssh_port = int(os.getenv("SSH_PORT"))
+    ssh_port = 22
     ssh_username = os.getenv("SSH_USERNAME")
     ssh_password = os.getenv("SSH_PASSWORD")
 
