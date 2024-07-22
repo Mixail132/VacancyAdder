@@ -30,7 +30,6 @@ class DataBaseHandler:
             (self.ssh_host, self.ssh_port),
             ssh_username=self.ssh_username,
             ssh_password=self.ssh_password,
-            local_bind_address=(self.local_host, self.local_port),
             remote_bind_address=(self.db_host, self.db_port)
         )
         tunnel.start()
