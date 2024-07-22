@@ -34,7 +34,7 @@ ALLOWED_HOSTS = [
     MY_HOST,
     '127.0.0.1',
     "localhost",
-    "artistic-myrtie-itacademy-d1b1ce63.koyeb.app"
+    "https://artistic-myrtie-itacademy-d1b1ce63.koyeb.app"
 ]
 
 
