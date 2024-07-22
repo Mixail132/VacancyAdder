@@ -30,7 +30,12 @@ SECRET_KEY = os.getenv("DJ_SECRET_KEY")
 DEBUG = True
 
 MY_HOST = os.getenv("MY_HOST")
-ALLOWED_HOSTS = [MY_HOST, '127.0.0.1', "localhost"]
+ALLOWED_HOSTS = [
+    MY_HOST,
+    '127.0.0.1',
+    "localhost",
+    "artistic-myrtie-itacademy-d1b1ce63.koyeb.app"
+]
 
 
 INSTALLED_APPS = [
