@@ -31,7 +31,7 @@ DEBUG = True
 
 MY_HOST = os.getenv("MY_HOST")
 ALLOWED_HOSTS = [
-    "localhost",
+    "127.0.0.1",
     "artistic-myrtie-itacademy-d1b1ce63.koyeb.app",
 ]
 
