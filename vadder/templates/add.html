@@ -5,22 +5,21 @@
   {% csrf_token %}
   <div>profession<br>
     <select name="profession">
-      <option value=""></option>
+        <option value=""></option>
       {% for profession in professions %}
-      <option value="{{ profession }}backend">{{ profession }}</option>
+        <option value="{{ profession }}">{{ profession }}</option>
       {% endfor %}
     </select>
   </div><br>
   <div class="checkbox-container">level<br>
-    junior<input type="checkbox" name="junior" value="junior">
-    middle<input type="checkbox" name="middle" value="middle">
-    senior<input type="checkbox" name="senior" value="senior">
+    {% for level in levels %}
+      {{ level }}<input type="checkbox" name="{{ leve }}" value="{{ level }}">
+    {% endfor %}
   </div><br>
   <div>type<br>
-    office<input type="checkbox" name="office" value="office">
-    remote<input type="checkbox" name="remote" value="remote">
-    flexible<input type="checkbox" name="flexible" value="flexible">
-    full time<input type="checkbox" name="fulltime" value="fulltime">
+    {% for type in types %}
+      {{ type }}<input type="checkbox" name="{{ type }}" value="{{ type }}">
+    {% endfor %}
   </div><br>
   <div>title<br>
     <input type="text" placeholder="vacancy" name="vacancy">
@@ -41,13 +40,9 @@
     <input type="text" placeholder="company" name="company">
   </div><br>
   <div>english<br>
-    None<input type="radio" name="english" value=""><br>
-    A1<input type="radio" name="english" value="A1">
-    A2<input type="radio" name="english" value="A2"><br>
-    B1<input type="radio" name="english" value="B1">
-    B2<input type="radio" name="english" value="B2"><br>
-    C1<input type="radio" name="english" value="C1">
-    C2<input type="radio" name="english" value="C2">
+    {% for item in english %}
+      {{ item }} <input type="radio" name="english" value="{{ item }}"><br>
+    {% endfor %}
   </div><br>
   <div>contacts<br>
     <input type="text" placeholder="url" name="contacts"><br>

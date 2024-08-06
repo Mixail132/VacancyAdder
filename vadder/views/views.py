@@ -8,11 +8,32 @@ from .clears import prepare_vacancy_items
 
 def home(request):
     """ Shows tha add vacancy form."""
-    professions = ["backend", "frontend", "qa", "devops", "designer", "game", "mobile", "product", "pm", "analyst",
-        "marketing", "sales", "hr"]
-    context = {"professions": professions}
+    english = ["None", "A1", "A2", "B1", "B2", "C1", "C2"]
+    levels = ["junior", "senior", "middle"]
+    professions = [
+        "backend",
+        "frontend",
+        "qa",
+        "devops",
+        "designer",
+        "game",
+        "mobile",
+        "product",
+        "pm",
+        "analyst",
+        "marketing",
+        "sales",
+        "hr",
+    ]
+    types = ["office", "remote", "flexible", "fulltime"]
+    context = {
+        "english": english,
+        "levels": levels,
+        "professions": professions,
+        "types": types
+    }
     if request.user.is_authenticated:
-        return render (request, "add.html", context=context)
+        return render(request, "add.html", context=context)
     return render(request, "login.html")
 
 
@@ -36,6 +57,8 @@ def getdata(request):
 
     try:
         english = request.POST["english"]
+        if english is None:
+            english = ""
     except MultiValueDictKeyError:
         english = ""
 
@@ -67,4 +90,3 @@ def getdata(request):
     database_handler.insert_vacancy(vacancy_keys, vacancy_values)
 
     return HttpResponseRedirect(reverse("home"))
-
