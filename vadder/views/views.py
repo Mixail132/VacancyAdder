@@ -7,7 +7,7 @@ from .clears import prepare_vacancy_items
 
 
 def home(request):
-    """ Shows tha add vacancy form."""
+    """ Shows the add vacancy form."""
     english = ["None", "A1", "A2", "B1", "B2", "C1", "C2"]
     levels = ["junior", "senior", "middle"]
     professions = [
