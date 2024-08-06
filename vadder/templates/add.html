@@ -6,19 +6,9 @@
   <div>profession<br>
     <select name="profession">
       <option value=""></option>
-      <option value="backend">backend</option>
-      <option value="frontend">frontend</option>
-      <option value="qa">qa</option>
-      <option value="devops">devops</option>
-      <option value="designer">designer</option>
-      <option value="game">game</option>
-      <option value="mobile">mobile</option>
-      <option value="product">product</option>
-      <option value="pm">pm</option>
-      <option value="analyst">analyst</option>
-      <option value="marketing">marketing</option>
-      <option value="sales">sales_manager</option>
-      <option value="hr">hr</option>
+      {% for profession in professions %}
+      <option value="{{ profession }}backend">{{ profession }}</option>
+      {% endfor %}
     </select>
   </div><br>
   <div class="checkbox-container">level<br>
@@ -48,7 +38,7 @@
     <input type="text" placeholder="2" name="experience">
   </div><br>
   <div>company<br>
-    <input type="company" placeholder="company" name="company">
+    <input type="text" placeholder="company" name="company">
   </div><br>
   <div>english<br>
     None<input type="radio" name="english" value=""><br>

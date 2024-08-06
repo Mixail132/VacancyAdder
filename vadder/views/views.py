@@ -8,8 +8,11 @@ from .clears import prepare_vacancy_items
 
 def home(request):
     """ Shows tha add vacancy form."""
+    professions = ["backend", "frontend", "qa", "devops", "designer", "game", "mobile", "product", "pm", "analyst",
+        "marketing", "sales", "hr"]
+    context = {"professions": professions}
     if request.user.is_authenticated:
-        return render(request, "add.html")
+        return render (request, "add.html", context=context)
     return render(request, "login.html")
 
 
@@ -64,3 +67,4 @@ def getdata(request):
     database_handler.insert_vacancy(vacancy_keys, vacancy_values)
 
     return HttpResponseRedirect(reverse("home"))
+
