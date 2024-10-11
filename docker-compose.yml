@@ -1,0 +1,17 @@
+services:
+  vadder:
+    image: ghcr.io/mixail132/vacancyadder:latest
+    container_name: itcoty.vadder
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+
+
+
+
